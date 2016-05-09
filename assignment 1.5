@@ -1,0 +1,20 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start:	mvi c,00H	
+	lhld 2500h
+	xchg 
+	lhld 2502h
+	dad  d
+	jnc  go
+	inr c
+go:	shld 2550h
+
+
+hlt

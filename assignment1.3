@@ -1,0 +1,25 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start:	lxi h , 2500h
+	mvi a , 0fH
+	ana  m
+	mov c,a
+	mvi a , 0f0H
+	ana m
+	rrc 
+	rrc 
+	rrc 
+	rrc 
+	add  c
+	sta 2550h
+	
+
+
+hlt

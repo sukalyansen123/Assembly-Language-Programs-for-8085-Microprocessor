@@ -1,0 +1,47 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: 	lxi h, 204fH
+	mov c , m	
+	lxi d ,2100H 
+	mvi b , 00h
+	inx h
+loop1:	mov a , m
+	rar
+	jnc loop2
+	ral
+	inr b
+	stax d
+	inx d
+	jmp loop2
+loop:	mov a , m
+	rar
+	jc loop3
+	ral
+	inr b
+	stax d
+	inx d
+	jmp loop3
+loop2:	dcr c
+	inx h
+	jnz loop1
+	mov a,b
+	sta 2300h
+	lxi h ,204fh
+	mov c , m
+	inx h
+	lxi d ,2200h
+	mvi b , 00h
+	jmp loop
+loop3:  dcr c
+	inx h
+	jnz loop
+	mov a , b
+	sta 2301h
+hlt

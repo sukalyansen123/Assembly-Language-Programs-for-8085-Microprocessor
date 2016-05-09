@@ -1,0 +1,39 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: 	lxi h , 2060h
+	mov a , m
+	mvi b, 01h
+	cmp b
+	jz loop1
+	mov a,m
+	mvi d, 02h
+	cmp d
+	jz loop2
+	mov a , m
+	mvi c , 2h
+	sub c
+	mov c ,a
+	mvi b, 00h
+	mvi d, 01h
+loop:	mov a,b
+	add d
+	mov b , d
+	mov d, a
+	dcr c
+	jnz loop
+	mov a, d
+	sta 2050h
+	hlt
+loop1:	mvi a ,00h
+	sta 2050h
+	hlt
+loop2: 	mvi a ,01h
+	sta 2050h
+	hlt

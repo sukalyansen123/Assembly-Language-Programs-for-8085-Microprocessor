@@ -1,0 +1,24 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: 	lxi h,2050H
+	mov a, m
+	ani 0fh
+	rrc
+	rrc
+	rrc
+	rrc
+	mov b,a
+	lxi h ,2051H
+	mvi a,0fh
+	ana m
+	ora b
+	sta 2052H
+
+hlt

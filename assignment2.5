@@ -1,0 +1,29 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start:	lxi h , 204eh
+	mov d,m
+	mvi b,01h
+	inx h
+	mov c,m
+	inx h
+loop:	mov a ,m
+	cmp  d
+	jnz loop1
+	mov a,b
+	sta 204dh
+	hlt
+loop1:	inr b
+	dcr c
+	inx h
+	jnz loop
+	mvi a,0ffh
+	sta 204dh
+
+hlt

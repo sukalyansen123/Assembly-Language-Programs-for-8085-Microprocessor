@@ -1,0 +1,26 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start:	lxi h , 2500h
+	mvi c , 08H
+	mov a , m
+	mvi b , 00H
+loop1:  rlc
+	jc loop
+	inr b
+loop: 	dcr c		
+	jnz loop1	
+	mov a,b
+	sta 2550h
+	mvi a, 08H
+	sub b
+	sta 2551h
+
+	
+hlt

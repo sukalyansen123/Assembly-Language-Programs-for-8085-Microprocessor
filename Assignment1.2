@@ -1,0 +1,27 @@
+
+;<Assignment 1.2>
+
+jmp start
+
+;data
+
+
+;code
+start: 	lxi  h, 2200h
+	mov  c, m
+	mvi  a, 00h
+	mvi  d, 00h
+	lxi  h, 2500h
+	add  m
+loop:	inx  h
+	mov  b, m
+	add  b
+	jnc  loop1
+	inr  d
+loop1:	dcr  c
+	jnz  loop	
+	sta  2300h
+	mov  a,d
+	sta  2301h
+
+hlt
